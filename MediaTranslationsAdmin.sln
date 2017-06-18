@@ -3,12 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFramework", "..\metroframework-modern-ui-master\MetroFramework\MetroFramework.csproj", "{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFramework.Design", "..\metroframework-modern-ui-master\MetroFramework.Design\MetroFramework.Design.csproj", "{7316584D-9A16-4280-A8AB-6D45198C6E4D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MetroFramework.Fonts", "..\metroframework-modern-ui-master\MetroFramework.Fonts\MetroFramework.Fonts.csproj", "{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaAdmin", "MediaAdmin\MediaAdmin.csproj", "{AF6BF414-DA3E-4F26-9931-174BA0BE3E97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaView", "MediaView\MediaView.csproj", "{4082CE19-68A3-47C3-A727-1A550FC7FB5B}"
@@ -25,30 +19,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|x86.ActiveCfg = Debug|x86
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Debug|x86.Build.0 = Debug|x86
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|x86.ActiveCfg = Release|x86
-		{BB41AC8B-CBED-4387-A7E0-4567EDB3F57F}.Release|x86.Build.0 = Release|x86
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Debug|x86.Build.0 = Debug|Any CPU
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|x86.ActiveCfg = Release|Any CPU
-		{7316584D-9A16-4280-A8AB-6D45198C6E4D}.Release|x86.Build.0 = Release|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Debug|x86.Build.0 = Debug|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Release|x86.ActiveCfg = Release|Any CPU
-		{5A2FCAE8-C2FA-41BD-90EA-16103EA07B26}.Release|x86.Build.0 = Release|Any CPU
 		{AF6BF414-DA3E-4F26-9931-174BA0BE3E97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF6BF414-DA3E-4F26-9931-174BA0BE3E97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF6BF414-DA3E-4F26-9931-174BA0BE3E97}.Debug|x86.ActiveCfg = Debug|Any CPU
