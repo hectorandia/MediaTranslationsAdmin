@@ -4,6 +4,10 @@ using System.Linq;
 using System.Web;
 using Ninject;
 using System.Web.Mvc;
+using MediaAdmin.Abstract;
+using MediaAdmin.MediaEntity;
+using MediaAdmin.Concrete;
+using Moq;
 
 namespace MediaWebView.Infrastructure
 {
@@ -29,7 +33,7 @@ namespace MediaWebView.Infrastructure
 
         private void AddBindings()
         {
-
+            kernel.Bind<IEFEntityRepository>().To<EFEntityRepository>();
         }
     }
 }

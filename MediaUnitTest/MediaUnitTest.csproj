@@ -65,6 +65,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
     </Reference>
@@ -100,10 +101,6 @@
     <ProjectReference Include="..\MediaAdmin\MediaAdmin.csproj">
       <Project>{af6bf414-da3e-4f26-9931-174ba0be3e97}</Project>
       <Name>MediaAdmin</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MediaView\MediaView.csproj">
-      <Project>{4082ce19-68a3-47c3-a727-1a550fc7fb5b}</Project>
-      <Name>MediaView</Name>
     </ProjectReference>
     <ProjectReference Include="..\MediaWebView\MediaWebView.csproj">
       <Project>{8a6efe93-61b2-4097-b8f5-862d1bfa29d0}</Project>
