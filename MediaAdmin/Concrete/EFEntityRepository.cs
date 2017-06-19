@@ -35,5 +35,26 @@ namespace MediaAdmin.Concrete
                 return context.Translators;
             }
         }
+
+        public void SaveCustomer(Customers customer)
+        {
+            if(customer.CustomerID == 0)
+            {
+                context.Customers.Add(customer);
+            }
+            else
+            {
+                Customers dbEntry = context.Customers.Find(customer.CustomerID);
+                {
+                    if(dbEntry != null)
+                    {
+                        dbEntry.Name = customer.Name;
+                        dbEntry.City = customer.City;
+                        dbEntry.Email = customer.Email;
+                    }
+                }
+                context.SaveChanges();
+            }
+        }
     }
 }

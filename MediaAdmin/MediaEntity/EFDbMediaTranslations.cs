@@ -19,9 +19,9 @@ namespace MediaAdmin.MediaEntity
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customers>()
-                .Property(e => e.CompanyName)
-                .IsFixedLength();
+            //modelBuilder.Entity<Customers>()
+            //    .Property(e => e.CompanyName)
+            //    .IsFixedLength();
 
             modelBuilder.Entity<Customers>()
                 .HasMany(e => e.Jobs)

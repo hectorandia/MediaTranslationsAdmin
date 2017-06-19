@@ -5,7 +5,8 @@ using System.Collections.Generic;
 using Moq;
 using MediaAdmin.Abstract;
 using MediaAdmin.MediaEntity;
-//using MediaView.Controller;
+using MediaWebView.Controllers;
+using MediaWebView.Models;
 
 namespace MediaUnitTest
 {
@@ -56,6 +57,53 @@ namespace MediaUnitTest
 
             ////Assert
             //Assert.IsFalse(jobsArray.Length == 5);
+        }
+
+        [TestMethod]
+        public void Can_Paginate()
+        {
+            //Arrange
+            Mock<IEFEntityRepository> mock = new Mock<IEFEntityRepository>();
+            mock.Setup(m => m.Customers).Returns(new Customers[] {
+                new Customers{CustomerID = 12, },
+                new Customers{CustomerID = 13, },
+                new Customers{CustomerID = 14, },
+                new Customers{CustomerID = 15, },
+                new Customers{ CustomerID = 16, }
+            });
+            CustomerController controller = new CustomerController(mock.Object);
+            controller.PageSize = 3;
+
+            //Act
+            CustomersListViewModel result = (CustomersListViewModel)controller.List(null, 2).Model;
+            //Assert
+            Customers[] array = result.Customers.ToArray();
+            Assert.IsTrue(array.Length == 2);
+            Assert.AreEqual(array[0].CustomerID, 15);
+            Assert.AreEqual(array[1].CustomerID, 16);
+
+        }
+
+        [TestMethod]
+        public void Can_Filter_City()
+        {
+            //Arrange
+            Mock<IEFEntityRepository> mock = new Mock<IEFEntityRepository>();
+            mock.Setup(m => m.Customers).Returns(new Customers[] {
+                new Customers{CustomerID = 1, City = "Chile" },
+                new Customers{CustomerID = 2, City = "Alemania"},
+                new Customers{CustomerID = 3, City = "Bolivia"},
+                new Customers{CustomerID = 4, City = "Alemania"},
+                new Customers{ CustomerID = 5, City = "Bolivia"}
+            });
+            NavController target = new NavController(mock.Object);
+            //Act
+            string[] result = ((IEnumerable<string>)target.Menu().Model).ToArray();
+
+            //Assert
+            Assert.AreEqual(result.Length, 3);
+            Assert.AreEqual(result[2], "Chile");
+            
         }
     }
 }

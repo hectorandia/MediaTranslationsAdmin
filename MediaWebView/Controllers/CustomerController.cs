@@ -5,22 +5,36 @@ using System.Web;
 using System.Web.Mvc;
 using MediaAdmin.Abstract;
 using MediaAdmin.MediaEntity;
+using MediaWebView.Models;
 
 namespace MediaWebView.Controllers
 {
     public class CustomerController : Controller
     {
         private IEFEntityRepository repository;
-       
+        public int PageSize = 4;       
 
         public CustomerController(IEFEntityRepository customerRepository)
         {
             this.repository = customerRepository;
         }
         // GET: Customer
-        public ViewResult List()
+        public ViewResult List(string city,int page = 1)
         {
-            return View(repository.Customers);
+            CustomersListViewModel model = new CustomersListViewModel
+            {
+                Customers = repository.Customers.Where(c => city == null || c.City == city)
+                .OrderBy(c => c.CustomerID).Skip((page - 1) * PageSize).Take(PageSize),
+                PagingInfo = new PagingInfo
+                {
+                    CurrentPage = page,
+                    ItemsPerPage = PageSize,
+                    TotalItems = city == null ? repository.Customers.Count() : repository.Customers.Where(c => c.City == city).Count()
+                },
+                CurrentCity = city
+            };
+
+            return View(model);
         }
     }
 }

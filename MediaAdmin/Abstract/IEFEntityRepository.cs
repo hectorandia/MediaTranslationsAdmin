@@ -12,5 +12,7 @@ namespace MediaAdmin.Abstract
         IEnumerable<Customers> Customers { get; }
         IEnumerable<Jobs> Jobs { get; }
         IEnumerable<Translators> Translators { get; }
+
+        void SaveCustomer(Customers customer);
     }
 }

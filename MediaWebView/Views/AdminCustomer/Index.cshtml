@@ -1,0 +1,48 @@
+﻿@model IEnumerable<MediaAdmin.MediaEntity.Customers>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminCustomerLayout.cshtml";
+}
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>All Customer</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-condensed table-bordered">
+        <tr>
+            <th class="text-right">ID</th>
+            <th>Name</th>
+            <th class="text-right">City</th>
+            <th class="text-right">Nose</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-right">@item.CustomerID</td>
+                <td>@Html.ActionLink(item.Name, "Edit", new { item.CustomerID})</td>
+                <td class="text-right">@item.City</td>
+                <td class="text-center">
+                    @using (Html.BeginForm("Delete", "AdminCustomer"))
+                    {
+                        @Html.Hidden("Customer", item.CustomerID)
+                    <input type="submit" class="btn btn-default btn-xs" value="Delete"/>
+                    }
+                </td>
+            </tr>
+        }
+        </table>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("Add a new Customer", "Create", null, new { @class="btn btn-default"})
+    </div>
+</div>
+
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+

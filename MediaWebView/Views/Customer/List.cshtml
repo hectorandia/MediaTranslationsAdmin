@@ -1,17 +1,15 @@
-﻿@using MediaAdmin.MediaEntity
-@model IEnumerable<Customers>
+﻿@model MediaWebView.Models.CustomersListViewModel
 
 @{
     ViewBag.Title = "List";
 }
 
-@foreach(var p in Model)
+@foreach(var c in Model.Customers)
 {
-    <div>
-        <h3>@p.Name</h3>
-        <h4>@p.CustomerID</h4>
-    </div>
+    @Html.Partial("CustomerSummary", c)
 }
 
-<h2>List</h2>
+<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, city = Model.CurrentCity}))
+</div>
 

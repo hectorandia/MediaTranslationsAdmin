@@ -5,6 +5,7 @@ namespace MediaAdmin.MediaEntity
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Web.Mvc;
 
     public partial class Customers
     {
@@ -16,6 +17,7 @@ namespace MediaAdmin.MediaEntity
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [HiddenInput(DisplayValue = false)]
         public int CustomerID { get; set; }
 
         [StringLength(50)]
@@ -39,9 +41,10 @@ namespace MediaAdmin.MediaEntity
         [StringLength(50)]
         public string Email { get; set; }
 
-        [StringLength(10)]
+        [StringLength(50)]
         public string CompanyName { get; set; }
 
+        
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Jobs> Jobs { get; set; }
     }

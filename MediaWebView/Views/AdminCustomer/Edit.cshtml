@@ -1,0 +1,36 @@
+﻿@model MediaAdmin.MediaEntity.Customers
+
+@{ 
+    ViewBag.Title = "AdminCustomer: Edit" + Model.Name;
+    Layout = "~/Views/Shared/_AdminCustomerLayout.cshtml";
+}
+
+
+<div class="panel">
+    <div class="panel-heading">
+        <h3>Edit @Model.Name</h3>
+    </div>
+    @using (Html.BeginForm())
+    {
+        <div class="panel-body">
+            @Html.HiddenFor(m => m.CustomerID)
+            @foreach(var property in ViewData.ModelMetadata.Properties)
+            {
+                if(property.PropertyName != "CustomerID" && property.PropertyName != "Jobs")
+                {
+                    <div class="form-group">
+                        <label>
+                            @(property.DisplayName ?? property.PropertyName)                          
+                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control"})
+                        </label>
+                    </div>
+                }
+            }
+        </div>
+        <div class="panel-footer">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            @Html.ActionLink("Cancel and return to List", "Index", null, new { @class ="btn btn-default"})
+        </div>
+    }
+</div>
+
