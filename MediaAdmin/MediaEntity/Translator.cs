@@ -6,7 +6,7 @@ namespace MediaAdmin.MediaEntity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Translators
+    public partial class Translator
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]

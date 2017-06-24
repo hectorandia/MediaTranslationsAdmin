@@ -33,7 +33,9 @@ namespace MediaWebView.Infrastructure
 
         private void AddBindings()
         {
-            kernel.Bind<IEFEntityRepository>().To<EFEntityRepository>();
+            kernel.Bind<IEFCustomerRepository>().To<EFECustomerRepository>();
+            kernel.Bind<IEFJobRepository>().To<EFJobRepository>();
+            kernel.Bind<IEFTranslatorRepository>().To<EFTranslatorRepository>();
         }
     }
 }

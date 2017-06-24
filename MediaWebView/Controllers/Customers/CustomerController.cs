@@ -11,10 +11,10 @@ namespace MediaWebView.Controllers
 {
     public class CustomerController : Controller
     {
-        private IEFEntityRepository repository;
-        public int PageSize = 4;       
+        private IEFCustomerRepository repository;
+        private int PageSize = 4;       
 
-        public CustomerController(IEFEntityRepository customerRepository)
+        public CustomerController(IEFCustomerRepository customerRepository)
         {
             this.repository = customerRepository;
         }

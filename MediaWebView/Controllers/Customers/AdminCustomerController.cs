@@ -10,9 +10,9 @@ namespace MediaWebView.Controllers
 {
     public class AdminCustomerController : Controller
     {
-        private IEFEntityRepository repository;
+        private IEFCustomerRepository repository;
 
-        public AdminCustomerController(IEFEntityRepository repo)
+        public AdminCustomerController(IEFCustomerRepository repo)
         {
             repository = repo;
         }
@@ -24,12 +24,12 @@ namespace MediaWebView.Controllers
 
         public ViewResult Edit(int customerID)
         {
-            Customers customer = repository.Customers.FirstOrDefault(c => c.CustomerID == customerID);
+            Customer customer = repository.Customers.FirstOrDefault(c => c.CustomerID == customerID);
             return View(customer);
         }
 
         [HttpPost]
-        public ActionResult Edit(Customers customer)
+        public ActionResult Edit(Customer customer)
         {
             if(ModelState.IsValid)
             {
@@ -41,9 +41,24 @@ namespace MediaWebView.Controllers
             {
                 //there is something wrong with the data values
                 return View(customer);
-                //pagina 291
             }
            
+        }
+
+        public ViewResult Create()
+        {
+            return View("Edit", new Customer());
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int customerID)
+        {
+            Customer deleteCustomer = repository.DeleteCustomer(customerID);
+            if(deleteCustomer != null)
+            {
+                TempData["message"] = string.Format("{0} was deleted", deleteCustomer.Name);
+            }
+            return RedirectToAction("Index");
         }
     }
 }

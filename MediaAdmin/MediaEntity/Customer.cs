@@ -7,12 +7,12 @@ namespace MediaAdmin.MediaEntity
     using System.Data.Entity.Spatial;
     using System.Web.Mvc;
 
-    public partial class Customers
+    public partial class Customer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customers()
+        public Customer()
         {
-            Jobs = new HashSet<Jobs>();
+            Jobs = new HashSet<Job>();
         }
 
         [Key]
@@ -20,9 +20,11 @@ namespace MediaAdmin.MediaEntity
         [HiddenInput(DisplayValue = false)]
         public int CustomerID { get; set; }
 
+        [Required(ErrorMessage = "Please enter a customer name")]
         [StringLength(50)]
         public string Name { get; set; }
 
+        //[Required(ErrorMessage = "Please enter a customer last name")]
         [StringLength(50)]
         public string LastName { get; set; }
 
@@ -38,6 +40,9 @@ namespace MediaAdmin.MediaEntity
         [StringLength(50)]
         public string Country { get; set; }
 
+        [Display(Name = "Email address")]
+        //[Required(ErrorMessage = "Please enter a customer email address")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [StringLength(50)]
         public string Email { get; set; }
 
@@ -46,6 +51,6 @@ namespace MediaAdmin.MediaEntity
 
         
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Jobs> Jobs { get; set; }
+        public virtual ICollection<Job> Jobs { get; set; }
     }
 }

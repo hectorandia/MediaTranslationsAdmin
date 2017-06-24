@@ -10,9 +10,9 @@ namespace MediaWebView.Controllers
 {
     public class NavController : Controller
     {
-        private IEFEntityRepository repository;
+        private IEFCustomerRepository repository;
 
-        public NavController(IEFEntityRepository repo)
+        public NavController(IEFCustomerRepository repo)
         {
             repository = repo;
         }

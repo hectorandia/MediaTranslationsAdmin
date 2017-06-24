@@ -1,8 +1,10 @@
-﻿@model MediaAdmin.MediaEntity.Customers
+﻿@model MediaAdmin.MediaEntity.Customer
 
 @{ 
-    ViewBag.Title = "AdminCustomer: Edit" + Model.Name;
+    ViewBag.Title = "AdminCustomer: Edit " + @Model.Name;
     Layout = "~/Views/Shared/_AdminCustomerLayout.cshtml";
+    HtmlHelper.ClientValidationEnabled = false;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
 }
 
 
@@ -10,19 +12,17 @@
     <div class="panel-heading">
         <h3>Edit @Model.Name</h3>
     </div>
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("Edit", "AdminCustomer"))
     {
         <div class="panel-body">
-            @Html.HiddenFor(m => m.CustomerID)
-            @foreach(var property in ViewData.ModelMetadata.Properties)
+            @foreach (var property in ViewData.ModelMetadata.Properties)
             {
-                if(property.PropertyName != "CustomerID" && property.PropertyName != "Jobs")
+                if (property.PropertyName != "CustomerID" && property.PropertyName != "Jobs")
                 {
                     <div class="form-group">
-                        <label>
-                            @(property.DisplayName ?? property.PropertyName)                          
-                            @Html.TextBox(property.PropertyName, null, new { @class = "form-control"})
-                        </label>
+                        <label>@(property.DisplayName ?? property.PropertyName)</label>
+                        @Html.TextBox(property.PropertyName, null, new { @class = "form-control" })
+                        @Html.ValidationMessage(property.PropertyName)
                     </div>
                 }
             }
@@ -33,4 +33,3 @@
         </div>
     }
 </div>
-

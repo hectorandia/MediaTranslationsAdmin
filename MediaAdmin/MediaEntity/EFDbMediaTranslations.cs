@@ -13,9 +13,9 @@ namespace MediaAdmin.MediaEntity
         {
         }
 
-        public virtual DbSet<Customers> Customers { get; set; }
-        public virtual DbSet<Jobs> Jobs { get; set; }
-        public virtual DbSet<Translators> Translators { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Job> Jobs { get; set; }
+        public virtual DbSet<Translator> Translators { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,7 +23,7 @@ namespace MediaAdmin.MediaEntity
             //    .Property(e => e.CompanyName)
             //    .IsFixedLength();
 
-            modelBuilder.Entity<Customers>()
+            modelBuilder.Entity<Customer>()
                 .HasMany(e => e.Jobs)
                 .WithRequired(e => e.Customers)
                 .WillCascadeOnDelete(false);

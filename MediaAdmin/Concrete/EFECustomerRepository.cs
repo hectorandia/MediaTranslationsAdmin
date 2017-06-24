@@ -8,11 +8,11 @@ using MediaAdmin.MediaEntity;
 
 namespace MediaAdmin.Concrete
 {
-    public class EFEntityRepository : IEFEntityRepository
+    public class EFECustomerRepository : IEFCustomerRepository
     {
         private EFDbMediaTranslations context = new EFDbMediaTranslations();
 
-        public IEnumerable<Customers> Customers
+        public IEnumerable<Customer> Customers
         {
             get
             {
@@ -20,23 +20,7 @@ namespace MediaAdmin.Concrete
             }
         }
 
-        public IEnumerable<Jobs> Jobs
-        {
-            get
-            {
-                return context.Jobs;
-            }
-        }
-
-        public IEnumerable<Translators> Translators
-        {
-            get
-            {
-                return context.Translators;
-            }
-        }
-
-        public void SaveCustomer(Customers customer)
+        public void SaveCustomer(Customer customer)
         {
             if(customer.CustomerID == 0)
             {
@@ -44,17 +28,33 @@ namespace MediaAdmin.Concrete
             }
             else
             {
-                Customers dbEntry = context.Customers.Find(customer.CustomerID);
+                Customer dbEntry = context.Customers.Find(customer.CustomerID);
                 {
                     if(dbEntry != null)
                     {
                         dbEntry.Name = customer.Name;
+                        dbEntry.LastName = customer.LastName;
+                        dbEntry.Address = customer.Address;
                         dbEntry.City = customer.City;
+                        dbEntry.ZIP = customer.ZIP;
+                        dbEntry.Country = customer.Country;
                         dbEntry.Email = customer.Email;
+                        dbEntry.CompanyName = customer.CompanyName;
                     }
                 }
+            }
+            context.SaveChanges();
+        }
+
+        public Customer DeleteCustomer(int customerID)
+        {
+            Customer dbEntry = context.Customers.Find(customerID);
+            if(dbEntry != null)
+            {
+                context.Customers.Remove(dbEntry);
                 context.SaveChanges();
             }
+            return dbEntry;
         }
     }
 }

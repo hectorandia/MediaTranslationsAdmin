@@ -10,9 +10,9 @@ namespace MediaWebView.Controllers
 {
     public class TranslatorController : Controller
     {
-        private IEFEntityRepository repository;
+        private IEFTranslatorRepository repository;
 
-        public TranslatorController(IEFEntityRepository translatorRepository)
+        public TranslatorController(IEFTranslatorRepository translatorRepository)
         {
             this.repository = translatorRepository;
         }

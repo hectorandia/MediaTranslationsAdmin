@@ -70,12 +70,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Abstract\IEFEntityRepository.cs" />
-    <Compile Include="Concrete\EFEntityRepository.cs" />
-    <Compile Include="MediaEntity\Customers.cs" />
+    <Compile Include="Abstract\IEFCustomerRepository.cs" />
+    <Compile Include="Abstract\IEFTranslatorRepository.cs" />
+    <Compile Include="Abstract\IEFJobRepository.cs" />
+    <Compile Include="Concrete\EFECustomerRepository.cs" />
+    <Compile Include="Concrete\EFJobRepository.cs" />
+    <Compile Include="Concrete\EFTranslatorRepository.cs" />
+    <Compile Include="MediaEntity\Customer.cs" />
     <Compile Include="MediaEntity\EFDbMediaTranslations.cs" />
-    <Compile Include="MediaEntity\Jobs.cs" />
-    <Compile Include="MediaEntity\Translators.cs" />
+    <Compile Include="MediaEntity\Job.cs" />
+    <Compile Include="MediaEntity\Translator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

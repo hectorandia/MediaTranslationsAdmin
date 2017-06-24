@@ -10,9 +10,9 @@ namespace MediaWebView.Controllers
 {
     public class JobController : Controller
     {
-        private IEFEntityRepository repository;
+        private IEFJobRepository repository;
 
-        public JobController(IEFEntityRepository jobRepository)
+        public JobController(IEFJobRepository jobRepository)
         {
             this.repository = jobRepository;
         }

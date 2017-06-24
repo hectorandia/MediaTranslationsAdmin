@@ -6,7 +6,7 @@ namespace MediaAdmin.MediaEntity
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Jobs
+    public partial class Job
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -47,6 +47,6 @@ namespace MediaAdmin.MediaEntity
         [StringLength(50)]
         public string TargetLanguage7 { get; set; }
 
-        public virtual Customers Customers { get; set; }
+        public virtual Customer Customers { get; set; }
     }
 }
