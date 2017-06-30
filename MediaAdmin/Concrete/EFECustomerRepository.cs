@@ -39,7 +39,6 @@ namespace MediaAdmin.Concrete
                         dbEntry.ZIP = customer.ZIP;
                         dbEntry.Country = customer.Country;
                         dbEntry.Email = customer.Email;
-                        dbEntry.CompanyName = customer.CompanyName;
                     }
                 }
             }

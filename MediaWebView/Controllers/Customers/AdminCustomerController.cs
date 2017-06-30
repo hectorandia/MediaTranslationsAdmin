@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using MediaAdmin.Abstract;
 using MediaAdmin.MediaEntity;
+using System.Globalization;
 
 namespace MediaWebView.Controllers
 {
@@ -24,6 +25,7 @@ namespace MediaWebView.Controllers
 
         public ViewResult Edit(int customerID)
         {
+            
             Customer customer = repository.Customers.FirstOrDefault(c => c.CustomerID == customerID);
             return View(customer);
         }
@@ -31,7 +33,9 @@ namespace MediaWebView.Controllers
         [HttpPost]
         public ActionResult Edit(Customer customer)
         {
-            if(ModelState.IsValid)
+
+
+            if (ModelState.IsValid)
             {
                 repository.SaveCustomer(customer);
                 TempData["message"] = string.Format("{0} has been saved", customer.Name);
@@ -47,6 +51,18 @@ namespace MediaWebView.Controllers
 
         public ViewResult Create()
         {
+            List<string> CountryList = new List<string>();
+            CultureInfo[] CInfoList = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            foreach (CultureInfo CInfo in CInfoList)
+            {
+                RegionInfo R = new RegionInfo(CInfo.LCID);
+                if (!(CountryList.Contains(R.EnglishName)))
+                {
+                    CountryList.Add(R.EnglishName);
+                }
+            }
+            CountryList.Sort();
+            ViewBag.CountryList = CountryList;
             return View("Edit", new Customer());
         }
 

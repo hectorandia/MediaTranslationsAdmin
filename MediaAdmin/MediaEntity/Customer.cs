@@ -9,6 +9,8 @@ namespace MediaAdmin.MediaEntity
 
     public partial class Customer
     {
+        public SelectList CustomerTypList = new SelectList(new string[] { "Private", "Company"});
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
@@ -34,6 +36,8 @@ namespace MediaAdmin.MediaEntity
         [StringLength(50)]
         public string City { get; set; }
 
+        
+        [RegularExpression(@"^\d{5}(-\d{4})?$", ErrorMessage = "Invalid Zip")]
         [StringLength(50)]
         public string ZIP { get; set; }
 
@@ -48,6 +52,19 @@ namespace MediaAdmin.MediaEntity
 
         [StringLength(50)]
         public string CompanyName { get; set; }
+
+        [StringLength(20)]
+        public string CustomerTyp { get; set; }
+
+        [StringLength(30)]
+        public string PhoneNumber { get; set; }
+
+        [Phone(ErrorMessage ="Invalid Phone number")]
+        [StringLength(30)]
+        public string CellPhoneNumber { get; set; }
+
+        [StringLength(50)]
+        public string State { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }
