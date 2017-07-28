@@ -4,12 +4,39 @@
     ViewBag.Title = "List";
 }
 
-@foreach(var c in Model.Customers)
-{
-    @Html.Partial("CustomerSummary", c)
-}
 
-<div class="btn-group pull-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x, city = Model.CurrentCity}))
+<!-- All Customers Block -->
+<div class="block full">
+    <!-- All Customers Title -->
+    <div class="block-title">
+        <h2><strong>All</strong> Customers</h2>
+    </div>
+    <!-- END All Customers Title -->
+
+    <!-- All Customers Content -->
+    <table id="ecom-orders" class="table table-bordered table-striped table-vcenter">
+        <thead>
+            <tr>
+                <th class="text-center" style="width: 100px;">ID</th>
+                <th class="visible-lg">Customer</th>
+                <th class="text-center hidden-xs">City</th>
+                <th>Country</th>
+                <th class="hidden-xs text-center">Email</th>
+                <th class="text-center">Customer Typ</th>
+                <th class="text-center">Company Name</th>
+                <th class="text-center">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var c in Model.Customers)
+            {
+                @Html.Partial("CustomerSummary", c)
+            }
+        </tbody>
+    </table>
 </div>
+
+@*<div class="btn-group pull-right">
+    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x}))
+</div>*@
 

@@ -9,7 +9,7 @@ namespace MediaWebView.Models
     public class CustomersListViewModel
     {
         public IEnumerable<Customer> Customers { get; set; }
-        public PagingInfo PagingInfo { get; set; }
-        public string CurrentCity { get; set; }
+        //(public PagingInfo PagingInfo { get; set; }
+        //public string CurrentCity { get; set; }
     }
 }

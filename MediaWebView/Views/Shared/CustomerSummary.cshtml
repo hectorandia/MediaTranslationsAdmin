@@ -1,6 +1,6 @@
 ﻿@model MediaAdmin.MediaEntity.Customer
 
-<div class="well">
+@*<div class="well">
     <h3>
         <strong>
             @Model.Name
@@ -12,5 +12,20 @@
     <span class="lead">
         @Model.City
     </span>
-</div>
+</div>*@
+
+<tr>
+    <td class="text-center"><strong>@Model.CustomerID</strong></td>
+    <td class="visible-lg">@Model.Name @Model.LastName</td>
+    <td class="text-center"><strong>@Model.City</strong></td>
+    <td class="text-center"><strong>@Model.Country</strong></td>
+    <td class="text-center"><strong>@Model.Email</strong></td>
+    <td class="text-center"><strong>@Model.CustomerTyp</strong></td>
+    <td class="text-center"><strong>@Model.CompanyName</strong></td>
+    <td class="text-center">
+        <div class="btn-group btn-group-xs">
+            <a href="#" data-toggle="tooltip" title="View" class="btn btn-default"><i class="fa fa-eye"></i></a>
+        </div>
+    </td>
+</tr>
 

@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<MediaAdmin.MediaEntity.Customer>
 
 @{
-    ViewBag.Title = "Admin: All Customers";
-    Layout = "~/Views/Shared/_AdminCustomerLayout.cshtml";
+    
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="panel panel-default">
@@ -34,6 +34,7 @@
             </tr>
         }
         </table>
+        @Html.ActionLink("Add a new Customer", "Create", null, new { @class = "btn btn-default" })
     </div>
     <div class="panel-footer">
         @Html.ActionLink("Add a new Customer", "Create", null, new { @class="btn btn-default"})

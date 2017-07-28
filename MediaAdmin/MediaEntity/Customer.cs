@@ -26,7 +26,6 @@ namespace MediaAdmin.MediaEntity
         [StringLength(50)]
         public string Name { get; set; }
 
-        //[Required(ErrorMessage = "Please enter a customer last name")]
         [StringLength(50)]
         public string LastName { get; set; }
 
@@ -40,12 +39,13 @@ namespace MediaAdmin.MediaEntity
         [RegularExpression(@"^\d{5}(-\d{4})?$", ErrorMessage = "Invalid Zip")]
         [StringLength(50)]
         public string ZIP { get; set; }
-
-        [StringLength(50)]
+       
+        [Required]
+        [StringLength(50, ErrorMessage ="Select a Country", MinimumLength = 2)]
         public string Country { get; set; }
 
         [Display(Name = "Email address")]
-        //[Required(ErrorMessage = "Please enter a customer email address")]
+        [Required(ErrorMessage = "Please enter a customer email address")]
         [EmailAddress(ErrorMessage = "Invalid Email Address")]
         [StringLength(50)]
         public string Email { get; set; }

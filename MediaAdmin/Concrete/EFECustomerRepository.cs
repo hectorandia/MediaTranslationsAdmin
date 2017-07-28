@@ -36,9 +36,14 @@ namespace MediaAdmin.Concrete
                         dbEntry.LastName = customer.LastName;
                         dbEntry.Address = customer.Address;
                         dbEntry.City = customer.City;
+                        dbEntry.State = customer.State;
                         dbEntry.ZIP = customer.ZIP;
                         dbEntry.Country = customer.Country;
                         dbEntry.Email = customer.Email;
+                        dbEntry.CustomerTyp = customer.CustomerTyp;
+                        dbEntry.PhoneNumber = customer.PhoneNumber;
+                        dbEntry.CellPhoneNumber = customer.CellPhoneNumber;
+                        dbEntry.CompanyName = customer.CompanyName;
                     }
                 }
             }
