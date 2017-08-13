@@ -1,19 +1,5 @@
 ﻿@model MediaAdmin.MediaEntity.Customer
 
-@*<div class="well">
-    <h3>
-        <strong>
-            @Model.Name
-        </strong>
-        <span class="pull-right label label-primary">
-            @Model.CustomerID.ToString()
-        </span>
-    </h3>
-    <span class="lead">
-        @Model.City
-    </span>
-</div>*@
-
 <tr>
     <td class="text-center"><strong>@Model.CustomerID</strong></td>
     <td class="visible-lg">@Model.Name @Model.LastName</td>
@@ -24,7 +10,8 @@
     <td class="text-center"><strong>@Model.CompanyName</strong></td>
     <td class="text-center">
         <div class="btn-group btn-group-xs">
-            <a href="#" data-toggle="tooltip" title="View" class="btn btn-default"><i class="fa fa-eye"></i></a>
+            @Html.ActionLink(" ", "CustomerView", new {@Model.CustomerID }, new { @class = "btn btn-default fa fa-pencil", title = "Edit" })
+            @Html.ActionLink(" ", "CustomerEdit", new { @Model.CustomerID }, new { @class = "btn btn-default fa fa-eye", title = "View" })
         </div>
     </td>
 </tr>

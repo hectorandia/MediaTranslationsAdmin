@@ -44,6 +44,7 @@ namespace MediaAdmin.Concrete
                         dbEntry.PhoneNumber = customer.PhoneNumber;
                         dbEntry.CellPhoneNumber = customer.CellPhoneNumber;
                         dbEntry.CompanyName = customer.CompanyName;
+                        dbEntry.Added = customer.Added;
                     }
                 }
             }

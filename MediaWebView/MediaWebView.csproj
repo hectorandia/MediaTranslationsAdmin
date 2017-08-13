@@ -619,7 +619,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\Customers\AdminCustomerController.cs" />
     <Compile Include="Controllers\Customers\CustomerController.cs" />
-    <Compile Include="Controllers\Customers\NavController.cs" />
     <Compile Include="Controllers\Jobs\AdminJobController.cs" />
     <Compile Include="Controllers\Jobs\JobController.cs" />
     <Compile Include="Controllers\Translators\AdminTranslatorController.cs" />
@@ -629,7 +628,7 @@
     </Compile>
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
-    <Compile Include="Models\CustomersListViewModel.cs" />
+    <Compile Include="Models\CustomersViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -637,8 +636,8 @@
     <Content Include="Views\web.config" />
     <Content Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Customer\List.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayout.cshtml" />
+    <Content Include="Views\Customer\CustomersList.cshtml" />
     <Content Include="Views\Job\List.cshtml" />
     <Content Include="Views\Translator\List.cshtml" />
     <Content Include="Views\Shared\CustomerSummary.cshtml" />
@@ -649,6 +648,10 @@
     <Content Include="Scripts\jquery-3.1.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.1.1.min.map" />
     <Content Include="Views\Dashboard\Index.cshtml" />
+    <Content Include="Views\Customer\CustomerView.cshtml" />
+    <Content Include="Views\Shared\_CreateCustomerLayout.cshtml" />
+    <Content Include="Views\Customer\CreateCustomer.cshtml" />
+    <Content Include="Views\Shared\_ViewCustomerLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

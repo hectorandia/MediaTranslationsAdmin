@@ -1,11 +1,19 @@
 ﻿@model MediaWebView.Models.CustomersListViewModel
 
-@{
-    ViewBag.Title = "List";
-}
-
-
+<!-- eCommerce Orders Header -->
+<div class="content-header">
+    <ul class="nav-horizontal text-center">
+        <li class="active">
+            <a><i class="gi gi-parents"></i> All Customers</a>
+        </li>
+        <li>
+            <a href="@Url.Action("CreateCustomer", "Customer")"><i class="gi gi-user_add"></i> Add Customer</a>           
+        </li>
+    </ul>
+</div>
+<!-- END eCommerce Orders Header -->
 <!-- All Customers Block -->
+
 <div class="block full">
     <!-- All Customers Title -->
     <div class="block-title">
@@ -14,11 +22,11 @@
     <!-- END All Customers Title -->
 
     <!-- All Customers Content -->
-    <table id="ecom-orders" class="table table-bordered table-striped table-vcenter">
+    <table id="cust-list" class="table table-bordered table-striped table-vcenter">
         <thead>
             <tr>
-                <th class="text-center" style="width: 100px;">ID</th>
-                <th class="visible-lg">Customer</th>
+                <th class="text-center" style="width: 70px;">ID</th>
+                <th>Customer</th>
                 <th class="text-center hidden-xs">City</th>
                 <th>Country</th>
                 <th class="hidden-xs text-center">Email</th>
@@ -36,7 +44,4 @@
     </table>
 </div>
 
-@*<div class="btn-group pull-right">
-    @Html.PageLinks(Model.PagingInfo, x => Url.Action("List", new { page = x}))
-</div>*@
 

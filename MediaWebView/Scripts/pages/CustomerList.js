@@ -28,7 +28,7 @@ var customerList = function() {
             App.datatables();
 
             /* Initialize Datatables */
-            $('#ecom-orders').dataTable({
+            $('#cust-list').dataTable({
                 columnDefs: [
                     { type: 'date-custom', targets: [6] },
                     { orderable: false, targets: [7] }

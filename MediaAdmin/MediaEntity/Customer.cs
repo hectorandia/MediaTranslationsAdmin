@@ -22,7 +22,7 @@ namespace MediaAdmin.MediaEntity
         [HiddenInput(DisplayValue = false)]
         public int CustomerID { get; set; }
 
-        [Required(ErrorMessage = "Please enter a customer name")]
+        //[Required(ErrorMessage = "Please enter a customer name")]
         [StringLength(50)]
         public string Name { get; set; }
 
@@ -40,13 +40,13 @@ namespace MediaAdmin.MediaEntity
         [StringLength(50)]
         public string ZIP { get; set; }
        
-        [Required]
+        
         [StringLength(50, ErrorMessage ="Select a Country", MinimumLength = 2)]
         public string Country { get; set; }
 
         [Display(Name = "Email address")]
-        [Required(ErrorMessage = "Please enter a customer email address")]
-        [EmailAddress(ErrorMessage = "Invalid Email Address")]
+        //[Required(ErrorMessage = "Please enter a customer email address")]
+        //[EmailAddress(ErrorMessage = "Invalid Email Address")]
         [StringLength(50)]
         public string Email { get; set; }
 
@@ -63,8 +63,12 @@ namespace MediaAdmin.MediaEntity
         [StringLength(30)]
         public string CellPhoneNumber { get; set; }
 
-        [StringLength(50)]
+        [DataType(DataType.DateTime)]
         public string State { get; set; }
+
+        [DataType(DataType.DateTime)]
+        public DateTime Added { get; set; }
+
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Job> Jobs { get; set; }

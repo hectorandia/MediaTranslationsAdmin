@@ -94,10 +94,10 @@
                                 <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-parents sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Customers</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active">All Customers</a>
+                                        <a href="CustomersList">All Customers</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("CreateCustomer", "Customer")">Add Customer</a>
+                                        <a class="active">Add Customer</a>
                                     </li>
                                 </ul>
                             </li>
@@ -203,7 +203,9 @@
     <script src="~/Scripts/vendor/bootstrap.min.js"></script>
     <script src="~/Scripts/plugins.js"></script>
     <script src="~/Scripts/app.js"></script>
-    <script src="~/Scripts/pages/CustomerList.js"></script>
-    <script>$(function(){ customerList.init(); });</script>
+    @*<script src="~/Scripts/pages/CustomerList.js"></script>
+    <script>$(function(){ customerList.init(); });</script>*@
+    <script src="~/Scripts/pages/formsValidation.js"></script>
+    <script>$(function () { FormsValidation.init(); });</script>
 </body>
 </html>

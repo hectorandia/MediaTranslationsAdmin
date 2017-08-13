@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using MediaAdmin.Abstract;
 using MediaAdmin.MediaEntity;
 using MediaWebView.Models;
+using System.Globalization;
 
 namespace MediaWebView.Controllers
 {
@@ -19,40 +20,95 @@ namespace MediaWebView.Controllers
             this.repository = customerRepository;
         }
 
-        // GET: Customer
-    //    public ViewResult List(string city,int page = 1)
-    //    {
-    //        CustomersListViewModel model = new CustomersListViewModel
-    //        {
-    //            Customers = repository.Customers.Where(c => city == null || c.City == city)
-    //            .OrderBy(c => c.CustomerID).Skip((page - 1) * PageSize).Take(PageSize),
-    //            PagingInfo = new PagingInfo
-    //            {
-    //                CurrentPage = page,
-    //                ItemsPerPage = PageSize,
-    //                TotalItems = city == null ? repository.Customers.Count() : repository.Customers.Where(c => c.City == city).Count()
-    //            },
-    //            CurrentCity = city
-    //        };
-
-    //        return View(model);
-    //    }
-
         //GET: All Customers
-        public ViewResult List()
+        public ViewResult CustomersList()
         {
             CustomersListViewModel model = new CustomersListViewModel
             {
                 Customers = repository.Customers.OrderBy(c => c.CustomerID)
-                //PagingInfo = new PagingInfo
-                //{
-                //    CurrentPage = page,
-                //    ItemsPerPage = PageSize,
-                //    TotalItems = repository.Customers.Count()
-                //}
-
             };
             return View(model);
         }
+
+        
+        public ViewResult CustomerView(int customerID)
+        {
+            //Customer customer = repository.Customers.FirstOrDefault(c => c.CustomerID == customerID);
+            //return View(customer);
+            CustomerInfoView model = new CustomerInfoView
+            {
+                Customer = repository.Customers.FirstOrDefault(c => c.CustomerID == customerID)
+            };
+            return View(model);
+        }
+
+        public ViewResult Create()
+        {
+            List<string> CountryList = new List<string>();
+            CultureInfo[] CInfoList = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            foreach (CultureInfo CInfo in CInfoList)
+            {
+                RegionInfo R = new RegionInfo(CInfo.LCID);
+                if (!(CountryList.Contains(R.EnglishName)))
+                {
+                    CountryList.Add(R.EnglishName);
+                }
+            }
+            CountryList.Sort();
+            ViewBag.CountryList = CountryList;
+            return View("Edit", new Customer());
+        }
+
+        
+        public ActionResult CreateCustomer()
+        {
+            List<string> CountryList = new List<string>();
+            CultureInfo[] CInfoList = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            foreach (CultureInfo CInfo in CInfoList)
+            {
+                RegionInfo R = new RegionInfo(CInfo.LCID);
+                if (!(CountryList.Contains(R.EnglishName)))
+                {
+                    CountryList.Add(R.EnglishName);
+                }
+            }
+            CountryList.Sort();
+            ViewBag.CountryList = CountryList;
+            return View(new Customer());
+
+        }
+
+        [HttpPost]
+        public ActionResult CreateCustomer(Customer customer)
+        {
+            List<string> CountryList = new List<string>();
+            CultureInfo[] CInfoList = CultureInfo.GetCultures(CultureTypes.SpecificCultures);
+            foreach (CultureInfo CInfo in CInfoList)
+            {
+                RegionInfo R = new RegionInfo(CInfo.LCID);
+                if (!(CountryList.Contains(R.EnglishName)))
+                {
+                    CountryList.Add(R.EnglishName);
+                }
+            }
+            CountryList.Sort();
+            ViewBag.CountryList = CountryList;
+
+            if (ModelState.IsValid)
+            {
+                customer.Added = DateTime.Now;
+                //customer.Birthdate = DateTime.Now;
+                repository.SaveCustomer(customer);
+                TempData["message"] = string.Format("{0} has been saved", customer.Name);
+                return RedirectToAction("CustomersList");
+            }
+            else
+            {
+                //there is something wrong with the data values
+                ViewBag.HasErrors = true;
+                return View(customer);
+            }
+        }
+        
     }
 }

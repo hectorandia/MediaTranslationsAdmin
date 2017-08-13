@@ -2,7 +2,7 @@
 <!--[if IE 9]>         <html class="no-js lt-ie10" lang="en"> <![endif]-->
 <!--[if gt IE 9]><!-->
 <html class="no-js" lang="en">
-<!--<![endif]-->
+ <!--<![endif]-->
 <head>
     <meta charset="utf-8">
 
@@ -88,16 +88,16 @@
                         <!-- Sidebar Navigation -->
                         <ul class="sidebar-nav">
                             <li>
-                                <a href="index.html"><i class="gi gi-stopwatch sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Dashboard</span></a>
+                                <a href="index.html" class=" active"><i class="gi gi-stopwatch sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Dashboard</span></a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="#" class="sidebar-nav-menu"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="gi gi-parents sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Customers</span></a>
                                 <ul>
                                     <li>
-                                        <a class="active">All Customers</a>
+                                        <a href="javascript:void(0)">All customers</a>
                                     </li>
                                     <li>
-                                        <a href="@Url.Action("CreateCustomer", "Customer")">Add Customer</a>
+                                        <a href="javascript:void(0)">Link #2</a>
                                     </li>
                                 </ul>
                             </li>
@@ -172,9 +172,22 @@
                 <!-- END Header -->
                 <!-- Page content -->
                 <div id="page-content">
+                    <!-- Page Header -->
+                    <div class="content-header">
+                        <div class="header-section">
+                            <h1>
+                                <i class="gi gi-brush"></i>Page Title<br><small>Subtitle</small>
+                            </h1>
+                        </div>
+                    </div>
+                    <ul class="breadcrumb breadcrumb-top">
+                        <li>Category</li>
+                        <li><a href="">Page</a></li>
+                    </ul>
+                    <!-- END Page Header -->
                     <!-- Example Block -->
                     <div class="block">
-                        @RenderBody()
+                       @RenderBody()
                     </div>
                     <!-- END Example Block -->
                 </div>
@@ -203,7 +216,5 @@
     <script src="~/Scripts/vendor/bootstrap.min.js"></script>
     <script src="~/Scripts/plugins.js"></script>
     <script src="~/Scripts/app.js"></script>
-    <script src="~/Scripts/pages/CustomerList.js"></script>
-    <script>$(function(){ customerList.init(); });</script>
 </body>
 </html>

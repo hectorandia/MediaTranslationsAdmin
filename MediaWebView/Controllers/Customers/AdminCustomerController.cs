@@ -82,6 +82,7 @@ namespace MediaWebView.Controllers
         [HttpPost]
         public ActionResult Delete(int customerID)
         {
+
             Customer deleteCustomer = repository.DeleteCustomer(customerID);
             if(deleteCustomer != null)
             {
