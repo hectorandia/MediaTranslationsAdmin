@@ -28,7 +28,7 @@
             <div class="block">
                 <!-- Form Validation Example Title -->
                 <div class="block-title">
-                    <h2><strong>Form Validation</strong> Example</h2>
+                    <h2><strong>New Customer information</strong></h2>
                 </div>
                 <!-- END Form Validation Example Title -->
                 <!-- Form Validation Example Content -->
@@ -36,9 +36,9 @@
                 @*@using (Html.BeginForm("CreateCustomer", "Customer", new { @class = "form-horizontal form-bordered", id="form-validation" }))
                 {*@
                     <fieldset>
-                        <legend><i class="fa fa-angle-right"></i> Vital Info</legend>
+                        <legend><i class="fa fa-angle-right"></i> Contact Info</legend>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="Name">First Name <span class="text-danger">*</span></label>
+                            <label class="col-md-2 control-label" for="Name">First Name <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
                                     @Html.TextBoxFor(m => m.Name, "", new { @class = "form-control", name = "Name", placeholder = "Customer first name" })                                  
@@ -47,7 +47,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="LastName">Last Name <span class="text-danger">*</span></label>
+                            <label class="col-md-2 control-label" for="LastName">Last Name <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">                           
                                     @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", name = "LastName", placeholder = "User last name" })
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="Email">Email <span class="text-danger">*</span></label>
+                            <label class="col-md-2 control-label" for="Email">Email <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
                                     @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", name = "Email", placeholder = "test@example.com" })
@@ -65,23 +65,21 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="FirstLanguage">Language <span class="text-danger">*</span></label>
-                            <div class="col-md-6">                                
+                            <label class="col-md-2 control-label" for="FirstLanguage">Language <span class="text-danger">*</span></label>
+                            <div class="col-md-3">                                
                                     @Html.DropDownListFor(m => m.FirstLanguage, new SelectList(ViewBag.LanguageList), "--- Select Language ---", new { @class = "select-chosen", name = "FirstLanguage" })                                 
                             </div>
                         </div>
                     </fieldset>
                     <fieldset>
-                        <legend><i class="fa fa-angle-right"></i> Personal</legend>
+                        <legend><i class="fa fa-angle-right"></i> Address</legend>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="Country">Country <span class="text-danger">*</span></label>
-                            <div class="col-md-6">
+                            <label class="col-md-2 control-label" for="Country">Country <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
                                 @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList), "--- Select Country ---", new { @class = "select-chosen", name = "Country" })
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="val_skill">State <span class="text-danger">*</span></label>
-                            <div class="col-md-6">
+                            <label class="col-md-1 control-label" for="val_skill">State <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
                                 <select id="val_skill" name="val_skill" class="form-control">
                                     <option value="">Please select</option>
                                     <option value="html">HTML</option>
@@ -93,7 +91,31 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val_website">Website <span class="text-danger">*</span></label>
+                            <label class="col-md-2 control-label" for="val_skill">State <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
+                                <select id="val_skill" name="val_skill" class="form-control">
+                                    <option value="">Please select</option>
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="php">PHP</option>
+                                    <option value="mysql">MySQL</option>
+                                </select>
+                            </div>
+                            <label class="col-md-1 control-label" for="val_skill">City <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
+                                <select id="val_skill" name="val_skill" class="form-control">
+                                    <option value="">Please select</option>
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="php">PHP</option>
+                                    <option value="mysql">MySQL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="val_website">Address <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
                                     <input type="text" id="val_website" name="val_website" class="form-control" value="http://">
