@@ -7,196 +7,156 @@
 }
 
 <!-- Main Content -->
-<div class="content-header">
-    <ul class="nav-horizontal text-center">
-        <li>
-            <a href="CustomersList"><i class="gi gi-parents"></i> All Customers</a>
-        </li>
-        <li class="active">
-            <a><i class="gi gi-user_add"></i> Add Customer</a>
-        </li>
+<div id="page-content">
+    <!-- Validation Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="gi gi-warning_sign"></i>Add a new Customer<br><small>Tools for easy form validation and user assist!</small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Customers</li>
+        <li><a href="CreateCustomer">CreateCustomer</a></li>
     </ul>
-</div>
-<div class="page-wrapper">
-    <div class="container-fluid">
-        <!-- /Title -->
-        <!-- Row -->
-        <div class="row">
-            <div class="col-md-12">
-                @*<div class="panel panel-default card-view">*@
-                    <div class="block">
-                        <div class="panel-heading">
-                            <div class="pull-left">
-                                <h3 class="block-title"><strong>Customer</strong> information</h3>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        @using (Html.BeginForm("CreateCustomer", "Customer", new { @class = "panel-wrapper collapse in", role = "form" }))
-                        {
-                            @Html.AntiForgeryToken()
-                            <div class="panel-body">
-                                <div class="row">
-                                    <div class="col-sm-12 col-xs-12">
-                                        <div class="form-wrap">
-                                            <form id="form-validation" action="#" method="post" class="form-horizontal form-bordered">
-                                                <div class="form-group">
-                                                    @*<h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Customer's Info</h6>*@
-                                                    <legend><i class="fa fa-angle-right"></i> Vital Info</legend>
-                                                    @*<hr class="light-grey-hr" />*@
-                                                    <div class="row">
-                                                        @Html.ValidationSummary(true)
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">First Name <span class="text-danger">*</span></label>
-                                                                <div class="input-group">
-                                                                    @Html.TextBoxFor(m => m.Name, "", new { @class = "form-control", placeholder = "User first name" })
-                                                                    <span class="input-group-addon"><i class="gi gi-user"></i></span>
-                                                                    @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Last Name <span class="text-danger">*</span></label>
-                                                                <div class="input-group">
-                                                                    @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", type = "text", placeholder = "User last name" })
-                                                                    <span class="input-group-addon"><i class="gi gi-user"></i></span>
-                                                                    @Html.ValidationMessageFor(m => m.LastName, "", new { @class = "text-danger" })
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                    </div>
-                                                    <!-- /Row -->
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Email <span class="text-danger">*</span></label>
-                                                                <div class="input-group">
-                                                                    @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", placeholder = "test@example.com" })
-                                                                    <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
-                                                                    @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Phone number</label>
-                                                                <div class="input-group">
-                                                                    @Html.TextBoxFor(m => m.PhoneNumber, "", new { @class = "form-control", placeholder = "Optional" })
-                                                                    <span class="input-group-addon"><i class="gi gi-phone_alt"></i></span>
-                                                                    @Html.ValidationMessageFor(m => m.PhoneNumber, "", new { @class = "text-danger" })
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                    </div>
-                                                    <!-- /Row -->
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Cell phone number</label>
-                                                                <div class="input-group">
-                                                                    @Html.TextBoxFor(m => m.CellPhoneNumber, "", new { @class = "form-control", placeholder = "Optional" })
-                                                                    <span class="input-group-addon"><i class="gi gi-iphone"></i></span>
-                                                                    @Html.ValidationMessageFor(m => m.CellPhoneNumber, "", new { @class = "text-danger" })
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Customer Typ</label>
-                                                                @Html.DropDownListFor(m => m.CustomerTyp, Model.CustomerTypList, new { @class = "select-chosen" })
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                    </div>
-                                                    <!-- /Row -->
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <label class="control-label mb-10">Company name</label>
-                                                            @Html.TextBoxFor(m => m.CompanyName, "", new { @class = "form-control", placeholder = "Optional" })
-                                                        </div>
-                                                    </div>
+    <!-- END Validation Header -->
 
-                                                    <div class="seprator-block"></div>
-                                                    @*<hr class="light-grey-hr" />*@
-                                                    <br />
-                                                    @*<h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account-box mr-10"></i>address</h6>*@
-                                                    <legend><i class="fa fa-angle-right"></i> Address</legend>
-
-                                                    <div class="row">
-                                                        <div class="col-md-12 ">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Street</label>
-                                                                @Html.TextBoxFor(m => m.Address, "", new { @class = "form-control" })
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">City</label>
-                                                                @Html.TextBoxFor(m => m.City, "", new { @class = "form-control" })
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">State</label>
-                                                                @Html.TextBoxFor(m => m.State, "", new { @class = "form-control" })
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                    </div>
-                                                    <!-- /Row -->
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Post Code</label>
-                                                                @Html.TextBoxFor(m => m.ZIP, "", new { @class = "form-control" })
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                        <div class="col-md-6">
-                                                            <div class="form-group">
-                                                                <label class="control-label mb-10">Country</label>
-                                                                @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList, "Germany"), "--- Select Country ---", new { @class = "select-chosen" })
-                                                                @Html.ValidationMessageFor(m => m.Country, "", new { @class = "form-control" })
-                                                            </div>
-                                                        </div>
-                                                        <!--/span-->
-                                                    </div>
-                                                </div>
-                                                <div class="form-actions mt-10">
-                                                    <button type="submit" class="btn btn-sm btn-primary"> Submit</button>
-                                                    <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Reset</button>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Form Validation Example Block -->
+            <div class="block">
+                <!-- Form Validation Example Title -->
+                <div class="block-title">
+                    <h2><strong>Form Validation</strong> Example</h2>
+                </div>
+                <!-- END Form Validation Example Title -->
+                <!-- Form Validation Example Content -->
+                <form id="form-validation" action="CreateCustomer" method="post" class="form-horizontal form-bordered">
+                @*@using (Html.BeginForm("CreateCustomer", "Customer", new { @class = "form-horizontal form-bordered", id="form-validation" }))
+                {*@
+                    <fieldset>
+                        <legend><i class="fa fa-angle-right"></i> Vital Info</legend>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Name">First Name <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Name, "", new { @class = "form-control", name = "Name", placeholder = "Customer first name" })                                  
+                                    <span class="input-group-addon"><i class="gi gi-user"></i></span>
                                 </div>
                             </div>
-                        }
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="LastName">Last Name <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">                           
+                                    @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", name = "LastName", placeholder = "User last name" })
+                                    <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Email">Email <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", name = "Email", placeholder = "test@example.com" })
+                                    <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="FirstLanguage">Language <span class="text-danger">*</span></label>
+                            <div class="col-md-6">                                
+                                    @Html.DropDownListFor(m => m.FirstLanguage, new SelectList(ViewBag.LanguageList), "--- Select Language ---", new { @class = "select-chosen", name = "FirstLanguage" })                                 
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend><i class="fa fa-angle-right"></i> Personal</legend>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="Country">Country <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList), "--- Select Country ---", new { @class = "select-chosen", name = "Country" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_skill">State <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <select id="val_skill" name="val_skill" class="form-control">
+                                    <option value="">Please select</option>
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="php">PHP</option>
+                                    <option value="mysql">MySQL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_website">Website <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_website" name="val_website" class="form-control" value="http://">
+                                    <span class="input-group-addon"><i class="gi gi-globe"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend><i class="fa fa-angle-right"></i> Extras</legend>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_digits">Digits <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_digits" name="val_digits" class="form-control" placeholder="1">
+                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_number">Number <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_number" name="val_number" class="form-control" placeholder="1.0">
+                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_range">Range [1, 1000] <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_range" name="val_range" class="form-control" placeholder="100">
+                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group form-actions">
+                        <div class="col-md-8 col-md-offset-4">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-arrow-right"></i> Submit</button>
+                            <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
+                        </div>
                     </div>
+                @*}*@
+                </form>
+                
+                <!-- END Form Validation Example Content -->
             </div>
+            <!-- END Validation Block -->
         </div>
-        <!-- /Row -->
-
     </div>
-
-    <!-- Footer -->
-    <footer class="footer container-fluid pl-30 pr-30">
-        <div class="row">
-            <div class="col-sm-12">
-                <p>2017 &copy; Doodle. Pampered by Hencework</p>
-            </div>
-        </div>
-    </footer>
-    <!-- /Footer -->
 </div>
+<!-- END Page Content -->
+<!-- Footer -->
+<footer class="clearfix">
+    <div class="pull-right">
+        Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+    </div>
+    <div class="pull-left">
+        <span id="year-copy"></span> &copy; <a href="http://goo.gl/TDOSuC" target="_blank">ProUI 3.8</a>
+    </div>
+</footer>
+<!-- END Footer -->
 <!-- /Main Content -->
 

@@ -11,43 +11,44 @@ var FormsValidation = function() {
             /*
              *  Jquery Validation, Check out more examples and documentation at https://github.com/jzaefferer/jquery-validation
              */
-
+            /*selectz-chosen validator*/
+            //$("#chosen").chosen();
+            //$.validator.setDefaults({ ignore: ":hidden:not(select)" })
             /* Initialize Form Validation */
             $('#form-validation').validate({
+                ignore: ":hidden:not(select)",
                 errorClass: 'help-block animation-slideDown', // You can change the animation class for a different entrance animation - check animations page
                 errorElement: 'div',
                 errorPlacement: function(error, e) {
                     e.parents('.form-group > div').append(error);
                 },
-                highlight: function(e) {
+                highlight: function (e) {
+                    ignore: ":hidden:not(select)",
                     $(e).closest('.form-group').removeClass('has-success has-error').addClass('has-error');
                     $(e).closest('.help-block').remove();
                 },
                 success: function(e) {
                     // You can use the following if you would like to highlight with green color the input after successful validation!
+                    ignore: ":hidden:not(select)",
                     e.closest('.form-group').removeClass('has-success has-error'); // e.closest('.form-group').removeClass('has-success has-error').addClass('has-success');
                     e.closest('.help-block').remove();
                 },
                 rules: {
-                    val_username: {
-                        required: true,
-                        minlength: 3
+                    Name: {
+                        required: true
                     },
-                    val_email: {
+                    LastName: {
+                        required: true
+                    },
+                    Email: {
                         required: true,
                         email: true
                     },
-                    val_password: {
+                    FirstLanguage: {
                         required: true,
-                        minlength: 5
                     },
-                    val_confirm_password: {
+                    Country: {
                         required: true,
-                        equalTo: '#val_password'
-                    },
-                    val_bio: {
-                        required: true,
-                        minlength: 5
                     },
                     val_skill: {
                         required: true
@@ -73,22 +74,20 @@ var FormsValidation = function() {
                     }
                 },
                 messages: {
-                    val_username: {
-                        required: 'Please enter a username',
-                        minlength: 'Your username must consist of at least 3 characters'
+                    Name: {
+                        required: 'Please enter a customer name'
                     },
-                    val_email: 'Please enter a valid email address',
-                    val_password: {
-                        required: 'Please provide a password',
-                        minlength: 'Your password must be at least 5 characters long'
+                    LastName: 'Please enter a customer last name',
+                    Email: {
+                        required: 'Please enter a valide email'                      
                     },
-                    val_confirm_password: {
-                        required: 'Please provide a password',
-                        minlength: 'Your password must be at least 5 characters long',
-                        equalTo: 'Please enter the same password as above'
-                    },
-                    val_bio: 'Don\'t be shy, share something with us :-)',
-                    val_skill: 'Please select a skill!',
+                    //val_confirm_password: {
+                    //    required: 'Please provide a password',
+                    //    minlength: 'Your password must be at least 5 characters long',
+                    //    equalTo: 'Please enter the same password as above'
+                    //},
+                    FirstLanguage: 'Please select a language!',
+                    Country: 'Please select a country!',
                     val_website: 'Please enter your website!',
                     val_digits: 'Please enter only digits!',
                     val_number: 'Please enter a number!',

@@ -10,8 +10,8 @@
     <td class="text-center"><strong>@Model.CompanyName</strong></td>
     <td class="text-center">
         <div class="btn-group btn-group-xs">
-            @Html.ActionLink(" ", "CustomerView", new {@Model.CustomerID }, new { @class = "btn btn-default fa fa-pencil", title = "Edit" })
-            @Html.ActionLink(" ", "CustomerEdit", new { @Model.CustomerID }, new { @class = "btn btn-default fa fa-eye", title = "View" })
+            @Html.ActionLink(" ", "CustomerEdit", new {@Model.CustomerID }, new { @class = "btn btn-default fa fa-pencil", title = "Edit" })
+            @Html.ActionLink(" ", "CustomerView", new { @Model.CustomerID }, new { @class = "btn btn-default fa fa-eye", title = "View" })
         </div>
     </td>
 </tr>

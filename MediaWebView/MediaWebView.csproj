@@ -136,6 +136,7 @@
     <Content Include="Content\themes\night.css" />
     <Content Include="Content\themes\spring.css" />
     <Content Include="Content\themes\waterlily.css" />
+    <Content Include="db\CreateDB.sql" />
     <Content Include="Global.asax" />
     <Content Include="Content\bootstrap.min.css.map" />
     <Content Include="Content\bootstrap.css.map" />
@@ -629,6 +630,7 @@
     <Compile Include="HtmlHelpers\PagingHelpers.cs" />
     <Compile Include="Infrastructure\NinjectDependencyResolver.cs" />
     <Compile Include="Models\CustomersViewModel.cs" />
+    <Compile Include="Models\JobsViewModel.cs" />
     <Compile Include="Models\PagingInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
