@@ -2,7 +2,7 @@
 
 @{ 
     ViewBag.Title = "AdminCustomer: Edit " + @Model.Name;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_ListCustomerLayout.cshtml";
     HtmlHelper.ClientValidationEnabled = false;
     HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
 }
@@ -39,19 +39,19 @@
                         </div>
                         <div class="clearfix"></div>
                     </div>
-                    @using (Html.BeginForm("Edit", "AdminCustomer", new { @class = "panel-wrapper collapse in" }))
+                    @using (Html.BeginForm("Edit", "AdminCustomer", new { @class = "panel-wrapper collapse in", role="form" }))
                     {
                         @Html.AntiForgeryToken()
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-12 col-xs-12">
-                                    <div class="form-wrap">
-                                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-wrap">        
                                         <form action="#">
                                             <div class="form-body">
                                                 <h6 class="txt-dark capitalize-font"><i class="zmdi zmdi-account mr-10"></i>Customer's Info</h6>
                                                 <hr class="light-grey-hr" />
                                                 <div class="row">
+                                                    @Html.ValidationSummary(true)
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="control-label mb-10">First Name</label>
@@ -107,6 +107,12 @@
                                                     <!--/span-->
                                                 </div>
                                                 <!-- /Row -->
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label class="control-label mb-10">Company name</label>
+                                                        @Html.TextBoxFor(m => m.CompanyName, "", new { @class = "form-control" })
+                                                    </div>
+                                                </div>
 
                                                 <div class="seprator-block"></div>
 
@@ -148,7 +154,8 @@
                                                     <div class="col-md-6">
                                                         <div class="form-group">
                                                             <label class="control-label mb-10">Country</label>
-                                                            @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList), new { @class="form-control"})
+                                                            @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList, "Germany"), "--- Select Country ---", new { @class="form-control"})
+                                                            @Html.ValidationMessageFor(m => m.Country, "", new { @class = "form-control" })
                                                         </div>
                                                     </div>
                                                     <!--/span-->
@@ -180,6 +187,5 @@
         </div>
     </footer>
     <!-- /Footer -->
-
 </div>
 <!-- /Main Content -->

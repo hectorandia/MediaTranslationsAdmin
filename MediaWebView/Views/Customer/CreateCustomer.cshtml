@@ -1,0 +1,184 @@
+﻿@model MediaAdmin.MediaEntity.Customer
+
+@{
+    Layout = "~/Views/Shared/_CreateCustomerLayout.cshtml";
+    HtmlHelper.ClientValidationEnabled = false;
+    HtmlHelper.UnobtrusiveJavaScriptEnabled = false;
+}
+
+<!-- Main Content -->
+<div id="page-content">
+    <!-- Validation Header -->
+    <div class="content-header">
+        <div class="header-section">
+            <h1>
+                <i class="gi gi-warning_sign"></i>Add a new Customer<br><small>Tools for easy form validation and user assist!</small>
+            </h1>
+        </div>
+    </div>
+    <ul class="breadcrumb breadcrumb-top">
+        <li>Customers</li>
+        <li><a href="CreateCustomer">CreateCustomer</a></li>
+    </ul>
+    <!-- END Validation Header -->
+
+    <div class="row">
+        <div class="col-md-12">
+            <!-- Form Validation Example Block -->
+            <div class="block">
+                <!-- Form Validation Example Title -->
+                <div class="block-title">
+                    <h2><strong>New Customer information</strong></h2>
+                </div>
+                <!-- END Form Validation Example Title -->
+                <!-- Form Validation Example Content -->
+                <form id="form-validation" action="CreateCustomer" method="post" class="form-horizontal form-bordered">
+                @*@using (Html.BeginForm("CreateCustomer", "Customer", new { @class = "form-horizontal form-bordered", id="form-validation" }))
+                {*@
+                    <fieldset>
+                        <legend><i class="fa fa-angle-right"></i> Contact Info</legend>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Name">First Name <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Name, "", new { @class = "form-control", name = "Name", placeholder = "Customer first name" })                                  
+                                    <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="LastName">Last Name <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">                           
+                                    @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", name = "LastName", placeholder = "User last name" })
+                                    <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Email">Email <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", name = "Email", placeholder = "test@example.com" })
+                                    <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="FirstLanguage">Language <span class="text-danger">*</span></label>
+                            <div class="col-md-3">                                
+                                    @Html.DropDownListFor(m => m.FirstLanguage, new SelectList(ViewBag.LanguageList), "--- Select Language ---", new { @class = "select-chosen", name = "FirstLanguage" })                                 
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend><i class="fa fa-angle-right"></i> Address</legend>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="Country">Country <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
+                                @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList), "--- Select Country ---", new { @class = "select-chosen", name = "Country" })
+                            </div>
+                            <label class="col-md-1 control-label" for="val_skill">State <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
+                                <select id="val_skill" name="val_skill" class="form-control">
+                                    <option value="">Please select</option>
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="php">PHP</option>
+                                    <option value="mysql">MySQL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="val_skill">State <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
+                                <select id="val_skill" name="val_skill" class="form-control">
+                                    <option value="">Please select</option>
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="php">PHP</option>
+                                    <option value="mysql">MySQL</option>
+                                </select>
+                            </div>
+                            <label class="col-md-1 control-label" for="val_skill">City <span class="text-danger">*</span></label>
+                            <div class="col-md-3">
+                                <select id="val_skill" name="val_skill" class="form-control">
+                                    <option value="">Please select</option>
+                                    <option value="html">HTML</option>
+                                    <option value="css">CSS</option>
+                                    <option value="javascript">Javascript</option>
+                                    <option value="php">PHP</option>
+                                    <option value="mysql">MySQL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label" for="val_website">Address <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_website" name="val_website" class="form-control" value="http://">
+                                    <span class="input-group-addon"><i class="gi gi-globe"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend><i class="fa fa-angle-right"></i> Extras</legend>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_digits">Digits <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_digits" name="val_digits" class="form-control" placeholder="1">
+                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_number">Number <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_number" name="val_number" class="form-control" placeholder="1.0">
+                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="val_range">Range [1, 1000] <span class="text-danger">*</span></label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    <input type="text" id="val_range" name="val_range" class="form-control" placeholder="100">
+                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="form-group form-actions">
+                        <div class="col-md-8 col-md-offset-4">
+                            <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-arrow-right"></i> Submit</button>
+                            <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
+                        </div>
+                    </div>
+                @*}*@
+                </form>
+                
+                <!-- END Form Validation Example Content -->
+            </div>
+            <!-- END Validation Block -->
+        </div>
+    </div>
+</div>
+<!-- END Page Content -->
+<!-- Footer -->
+<footer class="clearfix">
+    <div class="pull-right">
+        Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+    </div>
+    <div class="pull-left">
+        <span id="year-copy"></span> &copy; <a href="http://goo.gl/TDOSuC" target="_blank">ProUI 3.8</a>
+    </div>
+</footer>
+<!-- END Footer -->
+<!-- /Main Content -->
+
