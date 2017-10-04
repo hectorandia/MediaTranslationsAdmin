@@ -50,24 +50,25 @@ var FormsValidation = function() {
                     Country: {
                         required: true,
                     },
-                    val_skill: {
+                    CustomerTyp: {
                         required: true
                     },
-                    val_website: {
+                    CompanyName: {
                         required: true,
-                        url: true
+                        //url: true
                     },
-                    val_digits: {
-                        required: true,
-                        digits: true
-                    },
-                    val_number: {
-                        required: true,
+                    PhoneNumber: {
+                        required: false,
                         number: true
                     },
-                    val_range: {
-                        required: true,
-                        range: [1, 1000]
+                    CellPhoneNumber: {
+                        required: false,
+                        number: true
+                    },
+                    ZIP: {
+                        required: false,
+                        //range: [1, 1000]
+                        number: true
                     },
                     val_terms: {
                         required: true
@@ -87,12 +88,17 @@ var FormsValidation = function() {
                     //    equalTo: 'Please enter the same password as above'
                     //},
                     FirstLanguage: 'Please select a language!',
-                    Country: 'Please select a country!',
-                    val_website: 'Please enter your website!',
-                    val_digits: 'Please enter only digits!',
-                    val_number: 'Please enter a number!',
-                    val_range: 'Please enter a number between 1 and 1000!',
-                    val_terms: 'You must agree to the service terms!'
+                    Country: 'Please chose a country!',
+                    CompanyName: 'Please enter a Company name',
+                    CustomerTyp: 'Please select a Customer type',
+                    PhoneNumber: 'Please enter a valid Phone number',
+                    CellPhoneNumber: 'Please enter a valid Cell Phone number',
+                    ZIP: 'Please enter a valid ZIP Code'
+                    //val_website: 'Please enter your website!',
+                    //val_digits: 'Please enter only digits!',
+                    //val_number: 'Please enter a number!',
+                    //val_range: 'Please enter a number between 1 and 1000!',
+                    //val_terms: 'You must agree to the service terms!'
                 }
             });
 

@@ -44,6 +44,10 @@ namespace MediaAdmin.Concrete
                         dbEntry.TargetLanguage5 = job.TargetLanguage5;
                         dbEntry.TargetLanguage6 = job.TargetLanguage6;
                         dbEntry.TargetLanguage7 = job.TargetLanguage7;
+                        dbEntry.Payment = job.Payment;
+                        dbEntry.Value = job.Value;
+                        dbEntry.Status = job.Status;
+                        dbEntry.Added = job.Added;
                     }
                 }
                 context.SaveChanges();

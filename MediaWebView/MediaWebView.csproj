@@ -654,6 +654,10 @@
     <Content Include="Views\Shared\_CreateCustomerLayout.cshtml" />
     <Content Include="Views\Customer\CreateCustomer.cshtml" />
     <Content Include="Views\Shared\_ViewCustomerLayout.cshtml" />
+    <Content Include="Views\Shared\JobsSummary.cshtml" />
+    <Content Include="Views\Shared\_ListJobsLayout.cshtml" />
+    <Content Include="Views\Shared\_CreateJobLayout.cshtml" />
+    <Content Include="Views\Job\CreateJob.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

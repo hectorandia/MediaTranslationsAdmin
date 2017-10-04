@@ -1,0 +1,175 @@
+﻿@model MediaAdmin.MediaEntity.Job
+
+@{
+    ViewBag.Title = "CreateJob";
+    Layout = "~/Views/Shared/_CreateJobLayout.cshtml";
+}
+
+<!-- Main Content -->
+<!-- Validation Header -->
+<div class="content-header">
+    <ul class="nav-horizontal text-center">
+        <li>
+            <a href="@Url.Action("CustomersList", "Customer")"><i class="gi gi-parents"></i> All Customers</a>
+        </li>
+        <li class="active">
+            <a><i class="gi gi-user_add"></i> Add Customer</a>
+        </li>
+    </ul>
+</div>
+<!-- END Validation Header -->
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        <!-- Form Validation Example Block -->
+        <div class="block">
+            <!-- Form Validation Example Title -->
+            <div class="block-title">
+                <h2><strong>New Customer information</strong></h2>
+            </div>
+            <!-- END Form Validation Example Title -->
+            <!-- Form Validation Example Content -->
+            <form id="form-validation" action="CreateJob" method="post" class="form-horizontal form-bordered">
+                <fieldset>
+                    <legend><i class="fa fa-angle-right"></i> Contact Info</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="Name">First Name <span class="text-danger">*</span></label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(j => j.CustomerID, "", new { @class = "form-control", name = "Name", placeholder = "Customer first name" })
+                                <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="LastName">Last Name <span class="text-danger">*</span></label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", name = "LastName", placeholder = "Customer last name" })
+                                <span class="input-group-addon"><i class="gi gi-user"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="Email">Email <span class="text-danger">*</span></label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", name = "Email", placeholder = "test@example.com" })
+                                <span class="input-group-addon"><i class="gi gi-envelope"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="PhoneNumber">Phone Number</label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.PhoneNumber, "", new { @class = "form-control", name = "PhoneNumber", placeholder = "Phone number" })
+                                <span class="input-group-addon"><i class="gi gi-phone_alt"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="CellPhoneNumber">Cell Phone Number</label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.CellPhoneNumber, "", new { @class = "form-control", name = "CellPhoneNumber", placeholder = "Cell phone number" })
+                                <span class="input-group-addon"><i class="gi gi-iphone"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="FirstLanguage">Language <span class="text-danger">*</span></label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(m => m.FirstLanguage, new SelectList(ViewBag.LanguageList), "--- Select Language ---", new { @class = "select-chosen", name = "FirstLanguage" })
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend><i class="fa fa-angle-right"></i> Address</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="Address">Address</label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.Address, "", new { @class = "form-control", name = "Address" })
+                                <span class="input-group-addon"><i class="gi gi-home"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="City">City</label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.City, "", new { @class = "form-control", name = "City" })
+                                <span class="input-group-addon"><i class="gi gi-compass"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="State">State</label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.State, "", new { @class = "form-control", name = "State" })
+                                <span class="input-group-addon"><i class="gi gi-compass"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="Country">Country <span class="text-danger">*</span></label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList), "--- Select Country ---", new { @class = "select-chosen", name = "Country" })
+                        </div>
+                        <label class="col-md-1 control-label" for="ZIP">Zip</label>
+                        <div class="col-md-2">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.ZIP, "", new { @class = "form-control", name = "ZIP" })
+                                <span class="input-group-addon"><i class="gi gi-compass"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+                <fieldset>
+                    <legend><i class="fa fa-angle-right"></i> Extras</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="CompanyName">Company Name <span class="text-danger">*</span></label>
+                        <div class="col-md-6">
+                            <div class="input-group">
+                                @Html.TextBoxFor(m => m.CompanyName, "", new { @class = "form-control", name = "CompanyName", placeholder = "Customer company name" })
+                                <span class="input-group-addon"><i class="gi gi-briefcase"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="CustomerTyp">Customer Type <span class="text-danger">*</span></label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(m => m.CustomerTyp, new SelectList(ViewBag.CustomertypeList), "--- Select Customer type ---", new { @class = "select-chosen", name = "CustomerTyp" })
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="form-group form-actions">
+                    <div class="col-md-8 col-md-offset-4">
+                        <button type="submit" class="btn btn-sm btn-primary"><i class="fa fa-arrow-right"></i> Submit</button>
+                        <button type="reset" class="btn btn-sm btn-warning"><i class="fa fa-repeat"></i> Reset</button>
+                    </div>
+                </div>
+            </form>
+
+            <!-- END Form Validation Example Content -->
+        </div>
+        <!-- END Validation Block -->
+    </div>
+    <!-- END Validation Block -->
+</div>
+<!-- END Page Content -->
+<!-- Footer -->
+<footer class="clearfix">
+    <div class="pull-right">
+        Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://www.media-translations.de" target="_blank">MT</a>
+    </div>
+    <div class="pull-left">
+        <span id="year-copy"></span> &copy; <a href="https://www.media-translations.de" target="_blank">ProUI 3.8</a>
+    </div>
+</footer>
+<!-- END Footer -->
+<!-- /Main Content -->
+
+

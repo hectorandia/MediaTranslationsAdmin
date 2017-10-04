@@ -16,12 +16,15 @@ namespace MediaWebView.Controllers
         private int PageSize = 8;
         List<string> CountryList = new List<string>();
         List<string> LanguageList = new List<string>();
+        List<string> CustomertypeList = new List<string>();
 
 
         public CustomerController(IEFCustomerRepository customerRepository)
         {
             this.repository = customerRepository;
             LoadCultureInfo();
+            CustomertypeList.Add("Company");
+            CustomertypeList.Add("Private");
         }
 
         //GET: All Customers
@@ -66,6 +69,7 @@ namespace MediaWebView.Controllers
         
         public ActionResult CreateCustomer()
         {
+            ViewBag.CustomertypeList = CustomertypeList;
             return View(new Customer());
         }
 

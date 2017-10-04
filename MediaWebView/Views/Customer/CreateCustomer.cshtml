@@ -7,19 +7,17 @@
 }
 
 <!-- Main Content -->
-<div id="page-content">
     <!-- Validation Header -->
     <div class="content-header">
-        <div class="header-section">
-            <h1>
-                <i class="gi gi-warning_sign"></i>Add a new Customer<br><small>Tools for easy form validation and user assist!</small>
-            </h1>
-        </div>
+        <ul class="nav-horizontal text-center">
+            <li>
+                <a href="@Url.Action("CustomersList", "Customer")"><i class="gi gi-parents"></i> All Customers</a>
+            </li>
+            <li class="active">
+                <a><i class="gi gi-user_add"></i> Add Customer</a>
+            </li>
+        </ul>
     </div>
-    <ul class="breadcrumb breadcrumb-top">
-        <li>Customers</li>
-        <li><a href="CreateCustomer">CreateCustomer</a></li>
-    </ul>
     <!-- END Validation Header -->
 
     <div class="row">                      
@@ -49,7 +47,7 @@
                             <label class="col-md-4 control-label" for="LastName">Last Name <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", name = "LastName", placeholder = "User last name" })
+                                    @Html.TextBoxFor(m => m.LastName, "", new { @class = "form-control", name = "LastName", placeholder = "Customer last name" })
                                     <span class="input-group-addon"><i class="gi gi-user"></i></span>
                                 </div>
                             </div>
@@ -64,6 +62,24 @@
                             </div>
                         </div>
                         <div class="form-group">
+                            <label class="col-md-4 control-label" for="PhoneNumber">Phone Number</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.PhoneNumber, "", new { @class = "form-control", name = "PhoneNumber", placeholder = "Phone number" })
+                                    <span class="input-group-addon"><i class="gi gi-phone_alt"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="CellPhoneNumber">Cell Phone Number</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.CellPhoneNumber, "", new { @class = "form-control", name = "CellPhoneNumber", placeholder = "Cell phone number" })
+                                    <span class="input-group-addon"><i class="gi gi-iphone"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-4 control-label" for="FirstLanguage">Language <span class="text-danger">*</span></label>
                             <div class="col-md-3">
                                 @Html.DropDownListFor(m => m.FirstLanguage, new SelectList(ViewBag.LanguageList), "--- Select Language ---", new { @class = "select-chosen", name = "FirstLanguage" })
@@ -73,52 +89,42 @@
                     <fieldset>
                         <legend><i class="fa fa-angle-right"></i> Address</legend>
                         <div class="form-group">
+                            <label class="col-md-4 control-label" for="Address">Address</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.Address, "", new { @class = "form-control", name = "Address" })
+                                    <span class="input-group-addon"><i class="gi gi-home"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="City">City</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.City, "", new { @class = "form-control", name = "City" })
+                                    <span class="input-group-addon"><i class="gi gi-compass"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="State">State</label>
+                            <div class="col-md-6">
+                                <div class="input-group">
+                                    @Html.TextBoxFor(m => m.State, "", new { @class = "form-control", name = "State" })
+                                    <span class="input-group-addon"><i class="gi gi-compass"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
                             <label class="col-md-4 control-label" for="Country">Country <span class="text-danger">*</span></label>
                             <div class="col-md-3">
                                 @Html.DropDownListFor(m => m.Country, new SelectList(ViewBag.CountryList), "--- Select Country ---", new { @class = "select-chosen", name = "Country" })
                             </div>
-                            <label class="col-md-1 control-label" for="val_skill">State <span class="text-danger">*</span></label>
-                            <div class="col-md-3">
-                                <select id="val_skill" name="val_skill" class="form-control">
-                                    <option value="">Please select</option>
-                                    <option value="html">HTML</option>
-                                    <option value="css">CSS</option>
-                                    <option value="javascript">Javascript</option>
-                                    <option value="php">PHP</option>
-                                    <option value="mysql">MySQL</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="val_skill">State <span class="text-danger">*</span></label>
-                            <div class="col-md-3">
-                                <select id="val_skill" name="val_skill" class="form-control">
-                                    <option value="">Please select</option>
-                                    <option value="html">HTML</option>
-                                    <option value="css">CSS</option>
-                                    <option value="javascript">Javascript</option>
-                                    <option value="php">PHP</option>
-                                    <option value="mysql">MySQL</option>
-                                </select>
-                            </div>
-                            <label class="col-md-1 control-label" for="val_skill">City <span class="text-danger">*</span></label>
-                            <div class="col-md-3">
-                                <select id="val_skill" name="val_skill" class="form-control">
-                                    <option value="">Please select</option>
-                                    <option value="html">HTML</option>
-                                    <option value="css">CSS</option>
-                                    <option value="javascript">Javascript</option>
-                                    <option value="php">PHP</option>
-                                    <option value="mysql">MySQL</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="val_website">Address <span class="text-danger">*</span></label>
-                            <div class="col-md-6">
+                            <label class="col-md-1 control-label" for="ZIP">Zip</label>
+                            <div class="col-md-2">
                                 <div class="input-group">
-                                    <input type="text" id="val_website" name="val_website" class="form-control" value="http://">
-                                    <span class="input-group-addon"><i class="gi gi-globe"></i></span>
+                                    @Html.TextBoxFor(m => m.ZIP, "", new { @class = "form-control", name = "ZIP" })
+                                    <span class="input-group-addon"><i class="gi gi-compass"></i></span>
                                 </div>
                             </div>
                         </div>
@@ -126,30 +132,18 @@
                     <fieldset>
                         <legend><i class="fa fa-angle-right"></i> Extras</legend>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val_digits">Digits <span class="text-danger">*</span></label>
+                            <label class="col-md-4 control-label" for="CompanyName">Company Name <span class="text-danger">*</span></label>
                             <div class="col-md-6">
                                 <div class="input-group">
-                                    <input type="text" id="val_digits" name="val_digits" class="form-control" placeholder="1">
-                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
+                                    @Html.TextBoxFor(m => m.CompanyName, "", new { @class = "form-control", name = "CompanyName", placeholder = "Customer company name" })
+                                    <span class="input-group-addon"><i class="gi gi-briefcase"></i></span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-4 control-label" for="val_number">Number <span class="text-danger">*</span></label>
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <input type="text" id="val_number" name="val_number" class="form-control" placeholder="1.0">
-                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-md-4 control-label" for="val_range">Range [1, 1000] <span class="text-danger">*</span></label>
-                            <div class="col-md-6">
-                                <div class="input-group">
-                                    <input type="text" id="val_range" name="val_range" class="form-control" placeholder="100">
-                                    <span class="input-group-addon"><i class="gi gi-asterisk"></i></span>
-                                </div>
+                            <label class="col-md-4 control-label" for="CustomerTyp">Customer Type <span class="text-danger">*</span></label>
+                            <div class="col-md-4">
+                                   @Html.DropDownListFor(m => m.CustomerTyp, new SelectList(ViewBag.CustomertypeList), "--- Select Customer type ---", new { @class = "select-chosen", name = "CustomerTyp" })
                             </div>
                         </div>
                     </fieldset>
@@ -167,15 +161,14 @@
         </div>                              
         <!-- END Validation Block -->             
     </div>
-</div>
 <!-- END Page Content -->
 <!-- Footer -->
 <footer class="clearfix">
     <div class="pull-right">
-        Crafted with <i class="fa fa-heart text-danger"></i> by <a href="http://goo.gl/vNS3I" target="_blank">pixelcave</a>
+        Crafted with <i class="fa fa-heart text-danger"></i> by <a href="https://www.media-translations.de" target="_blank">MT</a>
     </div>
     <div class="pull-left">
-        <span id="year-copy"></span> &copy; <a href="http://goo.gl/TDOSuC" target="_blank">ProUI 3.8</a>
+        <span id="year-copy"></span> &copy; <a href="https://www.media-translations.de" target="_blank">ProUI 3.8</a>
     </div>
 </footer>
 <!-- END Footer -->

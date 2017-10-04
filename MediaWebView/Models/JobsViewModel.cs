@@ -6,11 +6,8 @@ using MediaAdmin.MediaEntity;
 
 namespace MediaWebView.Models
 {
-    public class JobsViewModel
+    public class JobsListViewModel
     {
-        public class JobsListViewModel
-        {
-            public IEnumerable<Job> Jobs { get; set; }
-        }
+        public IEnumerable<Job> Jobs { get; set; }
     }
 }

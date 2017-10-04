@@ -1,9 +1,47 @@
-﻿@using MediaAdmin.MediaEntity
-@model IEnumerable<Jobs>
+﻿@model MediaWebView.Models.JobsListViewModel
 
-@{
-    ViewBag.Title = "JobsList";
-}
+<!-- eCommerce Orders Header -->
+<div class="content-header">
+    <ul class="nav-horizontal text-center">
+        <li class="active">
+            <a><i class="gi gi-parents"></i> All Customers</a>
+        </li>
+        <li>
+            <a href="@Url.Action("CreateCustomer", "Customer")"><i class="gi gi-user_add"></i> Add Customer</a>
+        </li>
+    </ul>
+</div>
+<!-- END eCommerce Orders Header -->
+<!-- All Customers Block -->
 
-<h2>JobsList</h2>
+<div class="block full">
+    <!-- All Customers Title -->
+    <div class="block-title">
+        <h2><strong>All</strong> Jobs</h2>
+    </div>
+    <!-- END All Customers Title -->
+    <!-- All Customers Content -->
+    <table id="cust-list" class="table table-bordered table-striped table-vcenter">
+        <thead>
+            <tr>
+                <th class="text-center" style="width: 70px;">ID</th>
+                <th>Job</th>
+                <th class="text-center hidden-xs">Customer ID</th>
+                <th>Star date</th>
+                <th class="hidden-xs text-center">End date</th>
+                <th class="text-center">Language</th>
+                <th class="text-center">Payment</th>
+                <th class="text-center">Value</th>
+                <th class="text-center">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var j in Model.Jobs)
+            {
+                @Html.Partial("JobsSummary", j)
+            }
+        </tbody>
+    </table>
+</div>
+
 

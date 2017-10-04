@@ -9,7 +9,6 @@ namespace MediaAdmin.MediaEntity
 
     public partial class Customer
     {
-        public SelectList CustomerTypList = new SelectList(new string[] { "Private", "Company"});
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
